@@ -1,0 +1,62 @@
+<?php
+	 // module/Organization/view/organization/organization/index.phtml:
+
+	 $title = 'The Organizations';
+	 $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <p>
+     <a href="<?php echo $this->url('org', array('action'=>'add'));?>">Add new organization</a>
+ </p>
+
+ <table class="table">
+	 <tr>
+	     <th>Name</th>
+	     <th>Address</th>
+	     <th>Post Code</th>
+	     <th>contact_numbe</th>
+	     <th>contact_mail</th>
+	     <th>contact_person</th>
+	     <th>contact_web</th>
+	     <th>esol_assesment</th>
+	     <th>tutors_qualified</th>
+	     <th>tutors_qualified_condition</th>
+	     <th>courses_acreditated</th>
+	     <th>courses_acreditation_condition</th>
+	     <th>how_acreditated</th>
+	     <th>core_curriculum</th>
+	     <th>core_curriculum_condition</th>
+	     <th>referral_system</th>
+	     <th>classes_outside_newham</th>
+	     <th>other_information</th>
+	     <th>&nbsp;</th>
+	 </tr>
+	 <?php foreach ($organizations as $organization) : ?>
+		 <tr>
+		     <td><?php echo $this->escapeHtml($organization->name);?></td>
+		     <td><?php echo $this->escapeHtml($organization->address);?></td>
+		     <td><?php echo $this->escapeHtml($organization->post_code);?></td>
+		     <td><?php echo $this->escapeHtml($organization->contact_number);?></td>
+		     <td><?php echo $this->escapeHtml($organization->contact_mail);?></td>
+		     <td><?php echo $this->escapeHtml($organization->contact_person);?></td>
+		     <td><?php echo $this->escapeHtml($organization->contact_web);?></td>
+		     <td><?php echo $this->escapeHtml($organization->esol_assesment);?></td>
+		     <td><?php echo $this->escapeHtml($organization->tutors_qualified);?></td>
+		     <td><?php echo $this->escapeHtml($organization->tutors_qualified_condition);?></td>
+		     <td><?php echo $this->escapeHtml($organization->courses_acreditated);?></td>
+		     <td><?php echo $this->escapeHtml($organization->courses_acreditation_condition);?></td>
+		     <td><?php echo $this->escapeHtml($organization->how_acreditated);?></td>
+		     <td><?php echo $this->escapeHtml($organization->core_curriculum);?></td>
+		     <td><?php echo $this->escapeHtml($organization->core_curriculum_condition);?></td>
+		     <td><?php echo $this->escapeHtml($organization->referral_system);?></td>
+		     <td><?php echo $this->escapeHtml($organization->classes_outside_newham);?></td>
+		     <td><?php echo $this->escapeHtml($organization->other_information);?></td>
+		     <td>
+			 <a href="<?php echo $this->url('organization',
+			     array('action'=>'edit', 'id' => $organization->id));?>">Edit</a>
+			 <a href="<?php echo $this->url('organization',
+			     array('action'=>'delete', 'id' => $organization->id));?>">Delete</a>
+		     </td>
+		 </tr>
+	 <?php endforeach; ?>
+ </table>
